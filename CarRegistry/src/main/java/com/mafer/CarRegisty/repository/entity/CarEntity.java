@@ -27,7 +27,7 @@ public class CarEntity {
     private Integer numdoors;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "brandname")
     private BrandEntity brand;
 
 }

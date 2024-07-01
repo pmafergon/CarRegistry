@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 public class Car {
     private Integer id;
-    private Integer brand_id;
+    private String brandname;
     private String model;
     private Integer milleage;
     private Double price;

@@ -8,6 +8,7 @@ import com.mafer.CarRegisty.service.domain.Car;
 import org.mapstruct.Mapper;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 @Mapper(componentModel = "spring")
@@ -19,10 +20,10 @@ public interface DTOMapper {
 
     List<CarDTO> toDTOList(List<Car> car);
 
-    Brand BtoModel(BrandDTO brandDTO);
-    BrandDTO BtoDTO (Brand brand);
-    List<Brand> BtoModelList(List<BrandDTO> brandDTO);
-    List<BrandDTO> BtoDTOList (List<Brand> brand);
+    Brand btoModel(BrandDTO brandDTO);
+    BrandDTO btoDTO(Brand brand);
+    List<Brand> btoModelList(List<BrandDTO> brandDTO);
+    List<BrandDTO> btoDTOList (List<Brand> brands);
 
     CarDTOResponse toDTOResponse (Car car);
     List<CarDTOResponse> toDTOResponseList (List<Car> car);

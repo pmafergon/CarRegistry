@@ -11,11 +11,14 @@ import com.mafer.CarRegisty.service.CarService;
 import com.mafer.CarRegisty.service.domain.Car;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.concurrent.CompletableFuture;
+
 
 @Slf4j
 @Service
@@ -29,32 +32,56 @@ public class ServiceImpl implements CarService, BrandService {
     private BRepository bRepository;
 
     //Implementaciones de CarService
+    @Override
+    @Async
+    public CompletableFuture<List<Car>> findAll() throws NoSuchElementException {
 
-    public List<Car> findAll() throws NullPointerException{
+        long startTime = System.currentTimeMillis(); //Hora que empieza a ejecutarse el findAll
         List<CarEntity> carEntityList = cRepository.findAll();
-        if (carEntityList.isEmpty()){
-            throw new NullPointerException("No cars found");
+        if (carEntityList.isEmpty()) {
+                throw new NoSuchElementException("No cars found");
         } else {
+            List<BrandEntity> brandEntities = bRepository.findAll();
+
             for (CarEntity carEntity : carEntityList) {
-                Optional<BrandEntity> brand = bRepository.findById(carEntity.getBrand().getId());
-                carEntity.setBrand(brand.get());
+                BrandEntity brand = brandEntities.stream().filter(i -> i.
+                            getId()
+                            .equals(carEntity.getBrand().getId())).findFirst().orElseThrow();
+                    carEntity.setBrand(brand);
+                }
+                long endTime = System.currentTimeMillis();
+                log.info("Total time: " + (endTime - startTime));
+
+                return CompletableFuture.completedFuture(entityMapper.toServiceList(carEntityList));
             }
-            return entityMapper.toServiceList(carEntityList);
-        }
     }
 
-    public Car save(Car car)throws Exception{
+    @Override
+    @Async
+    public CompletableFuture<List<Car>> save(List<Car> car)throws Exception{
+        List<CarEntity> carEntitytoReturn = new ArrayList<CarEntity>();
 
-        Optional<BrandEntity> brandOfCar = bRepository.findById(car.getBrand_id());
-        if (brandOfCar.isPresent()){
-            CarEntity carEntity = entityMapper.toRepository(car);
-            carEntity.setBrand(brandOfCar.get());
-            cRepository.save(carEntity);
-            List<CarEntity> lastCarAdded = cRepository.findLastCar();
-            carEntity.setId(lastCarAdded.get(0).getId());
-            return entityMapper.toService(carEntity);
-        }else {
-            throw new Exception();
+        try {
+           long startTime = System.currentTimeMillis();
+           for (Car carBrand: car){
+              Optional<BrandEntity> brandOfCar = bRepository.findByName(carBrand.getBrandname());
+              if (brandOfCar.isPresent()) {
+                  CarEntity carEntity = entityMapper.toRepository(carBrand);
+                  carEntity.setBrand(brandOfCar.get());
+                  cRepository.save(carEntity);
+                  carEntitytoReturn.add(carEntity);
+              }else{
+                   log.warn(carBrand.getId()+" No added due to missing brand");
+               }
+           }
+           long endTime = System.currentTimeMillis();
+           log.info("Total time "+ (endTime-startTime));
+
+           return CompletableFuture.completedFuture(entityMapper.toServiceList(carEntitytoReturn));
+
+        }catch (Exception e){
+            log.error("Error occurred while saving cars" + e.getMessage());
+            return CompletableFuture.failedFuture(e);
         }
     }
 
@@ -67,63 +94,96 @@ public class ServiceImpl implements CarService, BrandService {
             throw new NullPointerException();
         }
     }
-    public Car update(Integer id,Car car)throws Exception{
-        Optional<CarEntity> findingCar = cRepository.findById(id);
-        Optional<BrandEntity>findingBrand=bRepository.findById(findingCar.get().getBrand().getId());
-        if(findingCar.isPresent() && findingBrand.isPresent()){
-            car.setId(id);
-            CarEntity carEntity = entityMapper.toRepository(car);
-            carEntity.setBrand(findingBrand.get());
-            return entityMapper.toService(cRepository.save(carEntity));
-        }else {
-            throw new Exception();
-        }
+
+    public Car update(Integer id,Car car) throws Exception{
+
+           long startTime= System.currentTimeMillis();
+           Optional<CarEntity> findingCar = cRepository.findById(id);
+           Optional<BrandEntity> findingBrand = bRepository.findByName(car.getBrandname());
+
+              if(findingCar.isPresent() && findingBrand.isPresent()){
+                 CarEntity carEntity = findingCar.get();
+                 carEntity.setBrand(findingBrand.get());
+                 CarEntity savedCar=cRepository.save(carEntity);
+                 long endTime = System.currentTimeMillis();
+                 log.info("Total time: " + (endTime - startTime));
+
+                 return entityMapper.toService(savedCar);
+              }else {
+                  throw new Exception();
+              }
     }
+
+
 
     public Car getById(Integer id)throws NullPointerException{
-        Optional<CarEntity> findingCar = cRepository.findById(id);
-        Optional<BrandEntity>findingBrand = bRepository.findById(findingCar.get().getBrand().getId());
 
-        if (findingCar.isPresent() && findingBrand.isPresent()) {
-            CarEntity carEntity = findingCar.get();
-            carEntity.setBrand(findingBrand.get());
-            return entityMapper.toService(carEntity);
-        }else {
-            throw new NullPointerException();
-        }
+       long startTime=System.currentTimeMillis();
+       Optional<CarEntity> findingCar = cRepository.findById(id);
+       Optional<BrandEntity>findingBrand = bRepository.findById(findingCar.get().getBrand().getId());
+
+       if (findingCar.isPresent() && findingBrand.isPresent()) {
+          CarEntity carEntity = findingCar.get();
+          carEntity.setBrand(findingBrand.get());
+          long endTime = System.currentTimeMillis();
+          log.info("Total time: " + (endTime - startTime));
+          return entityMapper.toService(carEntity);
+       }else {
+           throw new NullPointerException();
+       }
     }
+
+
 
     //Implementaciones de BrandService
-    public List<Brand> findAllB()throws NullPointerException{
-        List<BrandEntity> bfounds=bRepository.findAll();
-        if (bfounds.isEmpty()){
-            throw new NullPointerException();
-        }else {
-            return entityMapper.BtoServiceList(bfounds);
-        }
-    }
+    @Override
+    @Async
+    public CompletableFuture<List<Brand>> findAllB()throws NullPointerException{
+        long startTime = System.currentTimeMillis();
 
-    public Brand saveB(Brand brand)throws Exception{
+           List<BrandEntity> bfounds = bRepository.findAll();
 
-        List<BrandEntity> brandEntities=bRepository.findAll();
-        List<String>brandNames=brandEntities.stream()
-                    .map(BrandEntity::getName)
-                    .collect(Collectors.toList());
+            if (bfounds.isEmpty()){
+                throw new NullPointerException();
+            }else {
 
-        for (String bName:brandNames){
-            if (brand.getName().equals(bName)){
-                throw new Exception();
+                long endTime = System.currentTimeMillis();
+                log.info("Total time: " + (endTime-startTime));
+
+                return CompletableFuture.completedFuture(entityMapper.btoServiceList(bfounds));
             }
-        }
-        BrandEntity brandEntity=bRepository.save(entityMapper.BtoRepository(brand));
-        brandEntities=bRepository.findLastBrand();
-        brandEntity.setId(brandEntities.get(0).getId());
 
-
-
-        return entityMapper.BtoService(brandEntity);
     }
 
+    @Override
+    @Async("taskExecutor")
+    public CompletableFuture<List<Brand>> saveB(List<Brand> brands)throws Exception{
+        try {
+            List<BrandEntity> entitiesSaved = new ArrayList<BrandEntity>();
+
+              long startTime=System.currentTimeMillis();
+              for(Brand brand : brands){
+                  Optional<BrandEntity> checkingBrand = bRepository.findByName(brand.getName());
+                  if (checkingBrand.isPresent()){
+                      log.warn(checkingBrand.get().getName()+" brand already added");
+
+                  }else{
+                      BrandEntity savedBrand=bRepository.save(entityMapper.btoRepository(brand));
+                      entitiesSaved.add(savedBrand);
+                  }
+              }
+              long endTime=System.currentTimeMillis();
+              log.info("Total time: "+ (endTime-startTime));
+
+              return CompletableFuture.completedFuture(entityMapper.btoServiceList(entitiesSaved));
+
+
+        }catch (Exception e){
+            log.error("Error occurred while saving brands", e);
+            return CompletableFuture.failedFuture(e);
+        }
+    }
+    
     public String deleteB(Integer id)throws NullPointerException{
         Optional<BrandEntity> foundToDelete = bRepository.findById(id);
         if (foundToDelete.isPresent()) {
@@ -133,24 +193,39 @@ public class ServiceImpl implements CarService, BrandService {
             throw new NullPointerException();
         }
     }
-    public Brand updateB(Integer id,Brand brand)throws Exception{
-        Optional<BrandEntity> findingBrand = bRepository.findById(id);
-        if(findingBrand.isPresent()){
-            brand.setId(id);
-            return entityMapper.BtoService(bRepository.save(entityMapper.BtoRepository(brand)));
-        }else{
-            throw new Exception();
+
+
+    public Brand updateB(Integer id, Brand brand) throws Exception {
+
+
+       long startTime = System.currentTimeMillis();
+       Optional<BrandEntity> findingBrand = bRepository.findById(id);
+       if (findingBrand.isPresent()) {
+           brand.setId(id);
+           BrandEntity brandEntity = bRepository.save(entityMapper.btoRepository(brand));
+           long endTime=System.currentTimeMillis();
+           log.info("Total time: "+(endTime-startTime));
+           return entityMapper.btoService(brandEntity);
+        } else {
+           throw new Exception();
         }
     }
 
-    public Brand getBrandById(Integer id)throws NullPointerException{
-        Optional<BrandEntity> findingBrand = bRepository.findById(id);
-        if (findingBrand.isPresent()) {
-            return entityMapper.BtoService(findingBrand.get());
-        }else {
-            throw new NullPointerException();
-        }
+
+
+
+
+    public Brand getBrandById(Integer id) throws NullPointerException{
+
+       long startTime = System.currentTimeMillis();
+       Optional<BrandEntity> findingBrand = bRepository.findById(id);
+       if (findingBrand.isPresent()) {
+          return entityMapper.btoService(findingBrand.get());
+       }else {
+          throw new NullPointerException();
+       }
     }
 }
+
 
 

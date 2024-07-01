@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 @Mapper(componentModel = "spring")
@@ -19,9 +20,10 @@ public interface EntityMapper {
     Car toService(CarEntity carEntity);
     List<Car> toServiceList(List<CarEntity> carEntity);
 
-    BrandEntity BtoRepository (Brand brand);
-    Brand BtoService(BrandEntity brandEntity);
-    List<BrandEntity> BtoRepositoryList (List<Brand> brand);
-    List<Brand> BtoServiceList (List<BrandEntity> brandEntity);
+    BrandEntity btoRepository(Brand brand);
+    Brand btoService(BrandEntity brandEntity);
+    List<BrandEntity> btoRepositoryList(List<Brand> brand);
+    List<Brand> btoServiceList(List<BrandEntity> brandEntity);
+
 
 }
