@@ -10,6 +10,7 @@ import com.mafer.CarRegisty.service.domain.Car;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Controller {
 
     //Endpoints de CAR
     @GetMapping("/cars")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public CompletableFuture<?> findAll(){
         try {
             CompletableFuture<List<Car>> carsFound = carService.findAll();
@@ -42,6 +44,7 @@ public class Controller {
     }
 
     @GetMapping("/getById/{id}")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<?> getById(@PathVariable Integer id){
         try {
             return ResponseEntity.ok().body(mapper.toDTOResponse(carService.getById(id)));
@@ -52,6 +55,7 @@ public class Controller {
     }
 
     @DeleteMapping("/deleteCar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> delete(@PathVariable Integer id){
         try {
             return ResponseEntity.ok().body(carService.delete(id));
@@ -61,6 +65,7 @@ public class Controller {
         }
     }
     @PostMapping("/addCars")
+    @PreAuthorize("hasRole('ADMIN')")
     public CompletableFuture<?> save(@RequestBody List<CarDTO> carDTO){
         try {
             CompletableFuture<List<Car>> carsSaved = carService.save(mapper.toModelList(carDTO));
@@ -75,6 +80,7 @@ public class Controller {
     }
 
     @PutMapping("/updateCar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody CarDTO carDTO){
         try {
             return ResponseEntity.ok().body(mapper.toDTOResponse(carService.update(id, mapper.toModel(carDTO))));
@@ -86,6 +92,7 @@ public class Controller {
 
     //Endpoints de Brand
     @GetMapping("/brands")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public CompletableFuture<?> findAllB(){
         try {
             CompletableFuture<List<Brand>> foundbrands= brandService.findAllB();
@@ -98,6 +105,7 @@ public class Controller {
     }
 
     @GetMapping("/getBrandById/{id}")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<?> getBrandById(@PathVariable Integer id){
         try{
             return ResponseEntity.ok().body(mapper.btoDTO(brandService.getBrandById(id)));
@@ -109,6 +117,7 @@ public class Controller {
     }
 
     @DeleteMapping("/deleteBrand/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteBrand(@PathVariable Integer id){
         try {
             return ResponseEntity.ok().body(brandService.deleteB(id));
@@ -118,6 +127,7 @@ public class Controller {
         }
     }
     @PostMapping("/addBrands")
+    @PreAuthorize("hasRole('ADMIN')")
     public CompletableFuture<?> saveB(@RequestBody List<BrandDTO> brandDTO){
         try {
             CompletableFuture<List<Brand>> savedBrands = brandService.saveB(mapper.btoModelList(brandDTO));
@@ -132,6 +142,7 @@ public class Controller {
     }
 
     @PutMapping("/updateBrand/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateB(@PathVariable Integer id, @RequestBody BrandDTO brandDTO){
         try {
             return ResponseEntity.ok().body(mapper.btoDTO(brandService.updateB(id, mapper.btoModel(brandDTO))));

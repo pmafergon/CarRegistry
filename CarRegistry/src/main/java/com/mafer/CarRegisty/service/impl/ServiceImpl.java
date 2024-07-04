@@ -64,7 +64,7 @@ public class ServiceImpl implements CarService, BrandService {
         try {
            long startTime = System.currentTimeMillis();
            for (Car carBrand: car){
-              Optional<BrandEntity> brandOfCar = bRepository.findByName(carBrand.getBrandname());
+              Optional<BrandEntity> brandOfCar = bRepository.findByName(carBrand.getBrandname()); //Sacar la consulta a una base de datos a una lista para reducir consultas
               if (brandOfCar.isPresent()) {
                   CarEntity carEntity = entityMapper.toRepository(carBrand);
                   carEntity.setBrand(brandOfCar.get());
@@ -163,7 +163,7 @@ public class ServiceImpl implements CarService, BrandService {
 
               long startTime=System.currentTimeMillis();
               for(Brand brand : brands){
-                  Optional<BrandEntity> checkingBrand = bRepository.findByName(brand.getName());
+                  Optional<BrandEntity> checkingBrand = bRepository.findByName(brand.getName()); //Sacar la consulta a una base de datos a una lista para reducir consultas
                   if (checkingBrand.isPresent()){
                       log.warn(checkingBrand.get().getName()+" brand already added");
 
