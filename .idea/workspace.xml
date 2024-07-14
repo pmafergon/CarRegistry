@@ -4,67 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fcb0fb9-de0d-4b80-bd04-2e2932a02b5d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/CarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/CarApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/config/AsyncConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/config/AsyncConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/config/PasswordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/config/PasswordConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/BrandDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/BrandDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/CarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/CarDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/CarDTOResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/CarDTOResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/JwtResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/dto/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/dto/SignUpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/controller/mapper/DTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/mapper/DTOMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/BRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/BrandRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/CRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/CarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/entity/BrandEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/entity/BrandEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/entity/CarEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/entity/CarEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/repository/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/BrandService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/domain/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/domain/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/domain/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/domain/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/impl/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/impl/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/impl/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/ServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/CarRegisty/service/mapper/EntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/mapper/EntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/test/java/com/mafer/CarRegisty/CarRegistyApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/test/java/com/mafer/car/registry/CarApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/CarApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/BrandDTO$BrandDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/BrandDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/CarDTO$CarDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/CarDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/CarDTOResponse$CarDTOResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/dto/CarDTOResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/mapper/DTOMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/controller/mapper/DTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/repository/BRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/repository/CRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/repository/entity/BrandEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/repository/entity/CarEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/BrandService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/CarService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/domain/Brand$BrandBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/domain/Brand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/domain/Car$CarBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/domain/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/impl/ServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/mapper/EntityMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/CarRegisty/service/mapper/EntityMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/CarRegisty/controller/mapper/DTOMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/CarRegisty/service/mapper/EntityMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    <list default="true" id="8fcb0fb9-de0d-4b80-bd04-2e2932a02b5d" name="Changes" comment="Unit test added">
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/BrandService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,39 +46,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CarApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CarRegistyApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ControllerTest.test_delete.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.test_deleteBrand.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.test_findAll.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.test_findAllB.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ControllerTest.test_getById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.test_save.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.test_update.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ServiceImplTest.test_delete.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ServiceImplTest.test_deleteB.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ServiceImplTest.test_findAll.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.test_findAllB.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.test_getBrandById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.test_getById.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.ServiceImplTest.test_save.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.test_saveB.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ServiceImplTest.test_update.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServiceImplTest.test_updateB.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in CarRegisty.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.registry in CarRegisty.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pfern/OneDrive/Escritorio/Bootcamp Backend - Qualentum/Sprint 3/Lab 4 - Operamos con bases de datos/CARREGISTRY&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CarApplication.executor": "Run",
+    "JUnit.CarRegistyApplicationTests.executor": "Run",
+    "JUnit.ControllerTest.executor": "Coverage",
+    "JUnit.ControllerTest.test_delete.executor": "Run",
+    "JUnit.ControllerTest.test_deleteBrand.executor": "Run",
+    "JUnit.ControllerTest.test_findAll.executor": "Run",
+    "JUnit.ControllerTest.test_findAllB.executor": "Coverage",
+    "JUnit.ControllerTest.test_getById.executor": "Run",
+    "JUnit.ControllerTest.test_save.executor": "Run",
+    "JUnit.ControllerTest.test_update.executor": "Run",
+    "JUnit.ServiceImplTest.executor": "Coverage",
+    "JUnit.ServiceImplTest.test_delete.executor": "Coverage",
+    "JUnit.ServiceImplTest.test_deleteB.executor": "Coverage",
+    "JUnit.ServiceImplTest.test_findAll.executor": "Run",
+    "JUnit.ServiceImplTest.test_findAllB.executor": "Run",
+    "JUnit.ServiceImplTest.test_getBrandById.executor": "Run",
+    "JUnit.ServiceImplTest.test_getById.executor": "Debug",
+    "JUnit.ServiceImplTest.test_save.executor": "Run",
+    "JUnit.ServiceImplTest.test_saveB.executor": "Coverage",
+    "JUnit.ServiceImplTest.test_update.executor": "Run",
+    "JUnit.ServiceImplTest.test_updateB.executor": "Run",
+    "JUnit.java in CarRegisty.executor": "Coverage",
+    "JUnit.registry in CarRegisty.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pfern/OneDrive/Escritorio/Bootcamp Backend - Qualentum/Sprint 3/Lab 4 - Operamos con bases de datos/CARREGISTRY",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.ControllerTest.test_delete">
     <configuration name="ControllerTest.test_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarRegisty" />
@@ -230,7 +172,20 @@
       <option name="presentableId" value="Default" />
       <updated>1720103895487</updated>
     </task>
+    <task id="LOCAL-00001" summary="Unit test added">
+      <option name="closed" value="true" />
+      <created>1720947200983</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720947200983</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Unit test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit test added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Aplicacion_de_registro_de_vehíclos_en_una_base_de_datos$ServiceImplTest_test_delete.ic" NAME="ServiceImplTest.test_delete Coverage Results" MODIFIED="1720630169344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
