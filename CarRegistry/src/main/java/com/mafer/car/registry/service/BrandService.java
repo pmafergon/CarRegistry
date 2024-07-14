@@ -1,7 +1,6 @@
 package com.mafer.car.registry.service;
 
 import com.mafer.car.registry.service.domain.Brand;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
