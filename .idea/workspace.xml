@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fcb0fb9-de0d-4b80-bd04-2e2932a02b5d" name="Changes" comment="Unit test added">
-      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/BrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/repository/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/java/com/mafer/car/registry/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/test/java/com/mafer/car/registry/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/src/test/java/com/mafer/car/registry/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/car/registry/service/impl/ServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/classes/com/mafer/car/registry/service/impl/ServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/car/registry/controller/mapper/DTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/car/registry/controller/mapper/DTOMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/car/registry/service/mapper/EntityMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/generated-sources/annotations/com/mafer/car/registry/service/mapper/EntityMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/test-classes/com/mafer/car/registry/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/CarRegistry/CarRegistry/target/test-classes/com/mafer/car/registry/controller/ControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +65,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.CarApplication.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CarRegistyApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ControllerTest.test_delete.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ControllerTest.test_deleteBrand.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ControllerTest.test_findAll.executor&quot;: &quot;Run&quot;,
@@ -80,7 +95,22 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ControllerTest.test_delete">
+  <component name="RunManager" selected="JUnit.ControllerTest">
+    <configuration name="ControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRegisty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mafer.car.registry.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mafer.car.registry.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.mafer.car.registry.controller.ControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ControllerTest.test_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarRegisty" />
       <extension name="coverage">
@@ -113,34 +143,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.test_save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in CarRegisty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarRegisty" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mafer.car.registry.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mafer.car.registry.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.mafer.car.registry.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="test_save" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ControllerTest.test_update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CarRegisty" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mafer.car.registry.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mafer.car.registry.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.mafer.car.registry.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="test_update" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/CarRegistry/CarRegistry/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ControllerTest" />
+        <item itemvalue="JUnit.java in CarRegisty" />
         <item itemvalue="JUnit.registry in CarRegisty" />
         <item itemvalue="JUnit.ControllerTest.test_deleteBrand" />
         <item itemvalue="JUnit.ControllerTest.test_delete" />
-        <item itemvalue="JUnit.ControllerTest.test_update" />
-        <item itemvalue="JUnit.ControllerTest.test_save" />
       </list>
     </recent_temporary>
   </component>
@@ -180,8 +186,35 @@
       <option name="project" value="LOCAL" />
       <updated>1720947200983</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Unit test added">
+      <option name="closed" value="true" />
+      <created>1720948090280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720948090280</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Unit test added">
+      <option name="closed" value="true" />
+      <created>1720948167057</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720948167057</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Unit test added" />
@@ -200,7 +233,7 @@
     <SUITE FILE_PATH="coverage/Aplicacion_de_registro_de_vehíclos_en_una_base_de_datos$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1720692650543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.mafer.car.registry.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Aplicacion_de_registro_de_vehíclos_en_una_base_de_datos$java_in_CarRegisty.ic" NAME="java in CarRegisty Coverage Results" MODIFIED="1720692909263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Aplicacion_de_registro_de_vehíclos_en_una_base_de_datos$java_in_CarRegisty.ic" NAME="java in CarRegisty Coverage Results" MODIFIED="1721063183501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/Aplicacion_de_registro_de_vehíclos_en_una_base_de_datos$ServiceImplTest_test_saveB.ic" NAME="ServiceImplTest.test_saveB Coverage Results" MODIFIED="1720603387293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.mafer.car.registry.service.*</FILTER>
     </SUITE>
