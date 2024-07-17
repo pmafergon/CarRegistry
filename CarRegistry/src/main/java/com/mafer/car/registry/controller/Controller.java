@@ -9,9 +9,15 @@ import com.mafer.car.registry.service.domain.Brand;
 import com.mafer.car.registry.service.domain.Car;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -145,6 +151,33 @@ public class Controller {
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Brand not found");
         }
+    }
+
+    @GetMapping(value = "/downloadCars")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    public ResponseEntity<?> downloadCars()throws IOException{
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachement","cars.csv");
+        byte[] csvBytes = carService.carCsv().getBytes();
+
+        return new ResponseEntity<>(csvBytes,headers, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/uploadCsv", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> uploadCsv(@RequestParam(value = "file")MultipartFile file){
+        if(file.isEmpty()){
+            log.error("The file it's empty");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        if (file.getOriginalFilename().contains(".csv")){
+
+            carService.uploadCsvCars(file);
+            return ResponseEntity.ok("File successfully uploaded");
+        }
+        log.error("The file it's empty");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The file it's not CSV");
     }
 
 }

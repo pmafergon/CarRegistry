@@ -15,6 +15,7 @@ import com.mafer.car.registry.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -39,7 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ControllerTest {
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
+    @InjectMocks
     private Controller controller;
     @MockBean
     private CarService carService;
@@ -112,7 +113,7 @@ class ControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)  // Especifica el tipo de contenido como JSON
                         .content(objectMapper.writeValueAsString(carDTO))  // Convierte carDTO a JSON y establece como cuerpo de la solicitud
                         .with(csrf()))  // Añade CSRF token si es necesario
-                .andExpect(status().isOk());
+                        .andExpect(status().isOk());
 
 
 
@@ -146,7 +147,7 @@ class ControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)  // Especifica el tipo de contenido como JSON
                         .with(csrf())  // Añade CSRF token si es necesario
                         .content(objectMapper.writeValueAsString(carDTOList)))  // Convierte carDTOList a JSON
-                .andExpect(status().isOk());
+                        .andExpect(status().isOk());
 
     }
 
@@ -220,7 +221,7 @@ class ControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .with(csrf())
                         .content(objectMapper.writeValueAsString(brandDTOList)))
-                .andExpect(status().isOk());
+                        .andExpect(status().isOk());
 
     }
     @Test

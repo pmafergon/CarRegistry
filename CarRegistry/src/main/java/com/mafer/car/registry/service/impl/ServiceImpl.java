@@ -11,10 +11,18 @@ import com.mafer.car.registry.service.CarService;
 import com.mafer.car.registry.service.domain.Car;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -29,6 +37,7 @@ public class ServiceImpl implements CarService, BrandService {
     private final CarRepository carRepository;
     private final EntityMapper entityMapper;
     private final BrandRepository brandRepository;
+    private final String[] HEADERS = {"id","brand","model","milleage","price","year","description","colour","fueltype","numdoors"};
 
     //Implementations of CarService
 
@@ -39,14 +48,6 @@ public class ServiceImpl implements CarService, BrandService {
         if (carEntityList.isEmpty()) {
                 throw new NoSuchElementException("No cars found");
         } else {
-            List<BrandEntity> brandEntities = brandRepository.findAll();
-
-            for (CarEntity carEntity : carEntityList) {
-                BrandEntity brand = brandEntities.stream().filter(i -> i.
-                            getId()
-                            .equals(carEntity.getBrand().getId())).findFirst().orElseThrow();
-                    carEntity.setBrand(brand);
-                }
                 long endTime = System.currentTimeMillis();
                 String msg = "Total time: " + (endTime - startTime);
                 log.info(msg);
@@ -60,7 +61,6 @@ public class ServiceImpl implements CarService, BrandService {
     public CompletableFuture<List<Car>> save(List<Car> cars) {
         List<CarEntity> carEntityToReturn = new ArrayList<>();
         List<BrandEntity> allBrands = brandRepository.findAll();
-        log.info("primer hola");
         Map<String, BrandEntity> brandMap = allBrands.stream()
                 .collect(Collectors.toMap(BrandEntity::getName, brand -> brand));
 
@@ -236,6 +236,70 @@ public class ServiceImpl implements CarService, BrandService {
        }else {
           throw new NullPointerException();
        }
+    }
+
+    public String carCsv(){
+        List<CarEntity> carEntityList = carRepository.findAll();
+        StringBuilder csvContent = new StringBuilder();
+        csvContent.append(Arrays.toString(HEADERS)).append("\n");
+
+        for(CarEntity car : carEntityList){
+            csvContent.append(car.getId()).append(", ")
+                    .append(car.getBrand().getName()).append(", ")
+                    .append(car.getModel()).append(", ")
+                    .append(car.getMilleage()).append(", ")
+                    .append(car.getPrice()).append(", ")
+                    .append(car.getYear()).append(", ")
+                    .append(car.getDescription()).append(", ")
+                    .append(car.getColour()).append(", ")
+                    .append(car.getFueltype()).append(", ")
+                    .append(car.getNumdoors()).append("\n");
+        }
+        return csvContent.toString();
+    }
+
+    @Override
+    public List<Car> uploadCsvCars(MultipartFile file) {
+        try(BufferedReader fileReader = new BufferedReader(new InputStreamReader(file.getInputStream(),"UTF-8"));
+            CSVParser csvParser = new CSVParser(fileReader,
+                    CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());){
+
+            List<CarEntity> carEntityList = new ArrayList<>();
+            Iterable<CSVRecord> csvRecord = csvParser.getRecords();
+
+            List<BrandEntity> brandEntities=brandRepository.findAll();
+            Map<String, BrandEntity> brandMap = brandEntities.stream()
+                    .collect(Collectors.toMap(BrandEntity::getName, brand -> brand));
+
+
+            for (CSVRecord record:csvRecord){
+                CarEntity carEntity = CarEntity.builder()
+                        .model(record.get("model"))
+                        .milleage(Integer.valueOf(record.get("milleage")))
+                        .price(Double.valueOf(record.get("price")))
+                        .year(Integer.valueOf(record.get("year")))
+                        .description(record.get("description"))
+                        .colour(record.get("colour"))
+                        .fueltype(record.get("fueltype"))
+                        .numdoors(Integer.valueOf(record.get("numdoors")))
+                        .build();
+
+                BrandEntity brandOfCar = brandMap.get(record.get("brand"));
+                carEntity.setBrand(brandOfCar);
+
+                carEntityList.add(carEntity);
+            }
+            carRepository.saveAll(carEntityList);
+            return entityMapper.toServiceList(carEntityList);
+
+
+        } catch (Exception e) {
+
+
+            log.error("Failed to load cars.");
+            throw new RuntimeException(e);
+
+    }
     }
 }
 
